@@ -78,8 +78,6 @@ const NavBar = () => {
                 <span className={styles["bar"]}></span>
             </div>
         </div>
-
-
     )
 }
 

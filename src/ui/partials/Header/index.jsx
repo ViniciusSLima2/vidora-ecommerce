@@ -12,7 +12,7 @@ const Header = () => {
         setInputText(lowerCase);
     }
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <Link href="home" className={styles["logo-title"]}>Vidora</Link>
             
             <NavBar></NavBar>
@@ -24,7 +24,7 @@ const Header = () => {
 
                 <Link href="account"><img src="/user.png" alt="" /></Link>
             </div>
-        </div>
+        </section>
     )
 }
 

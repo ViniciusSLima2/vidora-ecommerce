@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 40px;
+    overflow-x: auto;
+}
+
+.container::-webkit-scrollbar {
+    background: #FFF;
+    width: 2px;
+    height: 6px;
+}
+.container::-webkit-scrollbar-thumb:horizontal {
+    background: rgb(70, 69, 69);
+    border-radius: 10px;
+}
+
+@media (max-width: 1170px){
+    .container{
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px){
+}
