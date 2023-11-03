@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px 40px;
+}
+
+.container h3{
+    font-size: 32px;
+    font-family: Aileron;
+}
+
+.branch-cards-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 15px 15px 30px 0px;
+}
+
+.branch-cards-container::-webkit-scrollbar {
+    background: #FFF;
+    width: 2px;
+    height: 6px;
+}
+.branch-cards-container::-webkit-scrollbar-thumb:horizontal {
+    background: rgb(70, 69, 69);
+    border-radius: 10px;
+}

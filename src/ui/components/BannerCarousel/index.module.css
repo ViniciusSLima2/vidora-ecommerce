@@ -1,5 +1,5 @@
 .shoes-img{
-    width: 100%;
+    width: 100vw;
     flex-shrink: 0;
     height: 650px;
     object-fit: cover;
@@ -49,14 +49,6 @@
 
 @media(max-width: 768px){
     .shoes-img{
-        height: 400px;
-    }
-
-    .banner-carousel-wrapper{
-        overflow: auto;
-    }
-
-    .arrow{
-        display: none !important;
+        height: 600px;
     }
 }
