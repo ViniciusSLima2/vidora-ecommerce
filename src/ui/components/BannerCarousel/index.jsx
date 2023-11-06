@@ -1,4 +1,4 @@
-'use client'
+
 import {useRef, useEffect} from 'react'
 import styles from "./index.module.css"
 const BannerCarousel = (props) => {

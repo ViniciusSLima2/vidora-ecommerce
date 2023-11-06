@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    width: 300px;
+    flex-shrink: 0;
+    transition: all 0.1s;
+}
+
+.container img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.container .description-container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.title{
+    font-size: 22px;
+}
+
+.container:hover{
+    transform: scale(1.1);
+}

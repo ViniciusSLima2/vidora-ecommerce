@@ -1,0 +1,44 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 40px;
+    gap: 20px;
+}
+
+.main-container > p{
+    font-size: 32px;
+    font-family: Aileron;
+}
+.wrapper{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    transition: transform .3s ease-in-out;
+}
+
+.arrow{
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+.previous-btn{
+    transform: rotate(180deg);
+    left: 0;
+}
+
+.next-btn{
+    right: 0;
+    transition: transform .1s;
+}

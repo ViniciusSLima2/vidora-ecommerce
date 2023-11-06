@@ -3,6 +3,7 @@ import BenefitsInfo from "@/ui/partials/BenefitsInfo";
 import Header from "@/ui/partials/Header";
 import Brands from "@/ui/partials/Brands";
 import HomeBanner from "@/ui/partials/HomeBanner";
+import ProductsCarousel from "@/ui/partials/ProductsCarousel";
 
 const Home = () => {
     return (
@@ -18,6 +19,8 @@ const Home = () => {
                 <BrandCard srcImg="reserva-logo.jpg" brandName="Reserva" fontColor="red" hrefLink="/products/reserva"></BrandCard>
                 <BrandCard srcImg="olympikus-logo.png" brandName="Olympikus" hrefLink="/products/olympikus"></BrandCard>
             </Brands>
+
+            <ProductsCarousel title={"Nike"}></ProductsCarousel>
         </div>
         
     )
