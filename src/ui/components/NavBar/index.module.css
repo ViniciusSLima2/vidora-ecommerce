@@ -111,10 +111,10 @@
     .header-nav {
         position: fixed;
         left: -100%;
-        top: 54px;
+        top: 52px;
         gap: 10px;
         flex-direction: column;
-        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.1);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -154,7 +154,7 @@
     }
 
     .header-nav .hover-down-container {
-        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
     .header-nav .hover-down-container a{

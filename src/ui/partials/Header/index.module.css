@@ -6,6 +6,11 @@
     justify-content: space-between;
     position: fixed;
     z-index: 9999;
+    transition: background-color .5s;
+}
+
+.fixed{
+    background-color: #FFF;
 }
 
 .nav-bar ul{
@@ -40,7 +45,7 @@
     color: #000;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .logo-title{
         display: none;
     }

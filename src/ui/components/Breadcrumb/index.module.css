@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.container span::after {
+    content: "/";
+    text-align: center;
+    padding-bottom: 12px;
+    width: 9px;
+    height: 9px;
+    display: block;
+}
+
+.container a{
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+}

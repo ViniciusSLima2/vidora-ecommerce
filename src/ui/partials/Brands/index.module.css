@@ -3,11 +3,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 0px 40px;
-}
-
-.container h3{
-    font-size: 32px;
-    font-family: Aileron;
+    align-content: center;
 }
 
 .branch-cards-container{
@@ -16,7 +12,11 @@
     gap: 10px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 15px 15px 30px 0px;
+    padding: 15px;
+    justify-content: center;
+    margin: 0 -40px;
+    width: auto;
+    background-color: #F5F5F5;
 }
 
 .branch-cards-container::-webkit-scrollbar {
@@ -27,4 +27,8 @@
 .branch-cards-container::-webkit-scrollbar-thumb:horizontal {
     background: rgb(70, 69, 69);
     border-radius: 10px;
+}
+
+@media (max-width: 768px){
+
 }

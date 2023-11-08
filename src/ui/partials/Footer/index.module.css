@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    height: 60px;
+    background-color: #000;
+    align-items: center;
+    padding: 0 100px;
+    justify-content: space-between;
+}
+
+.container p,
+.container a{
+    color: #D5D5D5;
+    font-size: 20px;
+}
+
+
+.container img{
+    width: 40px;
+    height: 40px;
+}
+
+@media(max-width: 768px){
+    .container{
+        flex-direction: column;
+        height: initial;
+        padding: 30px 0;
+        gap: 40px;
+    }
+}

@@ -16,8 +16,9 @@ const ProductsCarousel = (props) => {
     }
 
     const hideBtn = (maxTranslations) => {
-        previousBtn.current.style.display = index === 0 ? 'none' : 'block';
-        nextBtn.current.style.display = index === maxTranslations ? 'none' : 'block';
+        previousBtn.current && (previousBtn.current.style.display = index === 0 ? 'none' : 'block');
+        nextBtn.current && (nextBtn.current.style.display = index === maxTranslations ? 'none' : 'block');
+        
     }
 
     const moveCarousel = (direction) => {
@@ -55,19 +56,9 @@ const ProductsCarousel = (props) => {
             <div className={styles["wrapper"]} ref={wrapperContainer}>
                 <img className={`${styles["previous-btn"]} ${styles["arrow"]}`} src="arrow.svg" ref={previousBtn} onClick={() => moveCarousel(1)}/>
                 <div className={styles["container"]} ref={carouselContainer}>
-                            <ProductCard key={1} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={2} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                            <ProductCard key={3} imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
+                    {props.children?.map((card, index) => {
+                        return(<div key={index.toString()}>{card}</div>)
+                    })}
                 </div>
                 <img className={`${styles["next-btn"]} ${styles["arrow"]}`} src="arrow.svg" ref={nextBtn} onClick={() => moveCarousel(-1)}/>
             </div>

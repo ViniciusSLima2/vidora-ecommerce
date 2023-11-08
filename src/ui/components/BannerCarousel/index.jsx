@@ -18,14 +18,14 @@ const BannerCarousel = (props) => {
     const handlePreviousBtn = (e) => {
         if(index - 1 >= 0){
             index -= 1;
-            carouselContainer.current.style.transform = "translate(-" + window.innerWidth * index + "px)";
+            carouselContainer.current && (carouselContainer.current.style.transform = "translate(-" + window.innerWidth * index + "px)");
             hideBtn()
         }
     }
 
     const hideBtn = () => {
-        previousBtn.current.style.display = index === 0 ? 'none' : 'block';
-        nextBtn.current.style.display = index === imgsArray.length - 1 ? 'none' : 'block';
+        previousBtn.current && (previousBtn.current.style.display = index === 0 ? 'none' : 'block');
+        nextBtn.current && (nextBtn.current.style.display = index === imgsArray.length - 1 ? 'none' : 'block');
     }
 
     useEffect(()=> {

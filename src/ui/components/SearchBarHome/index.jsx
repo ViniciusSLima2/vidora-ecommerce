@@ -9,7 +9,7 @@ const SearchBarHome = (props) => {
     
     return (
         <div className={styles["search-container"]} tabIndex="0" onClick={() => {setIsVisible(true)}}>
-            <img src="./magnifyier.svg" alt="magnifier"  ref={imgContainer}/>
+            <img src="/magnifyier.svg" alt="magnifier"  ref={imgContainer}/>
             <input type="text" onChange={props.inputHandler} ref={input} placeholder="Search" tabIndex="1" 
             className={isVisible && styles["visible"]} />
         </div>
