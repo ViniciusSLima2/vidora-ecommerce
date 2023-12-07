@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.container .body{
+    overflow: hidden;
+    max-height: 0;
+    width: 100%;
+}
+
+.container.active .body{
+    max-height: 500px;
+}
+
+.title{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.title::after{
+    content: "";
+    background-image: url(/arrow.svg);
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-size: 15px;
+    margin-left: 100px;
+    transform: rotate(90deg);
+    transition: transform .5s;
+}
+
+.container.active .title::after{
+    transform: rotate(-90deg);
+}

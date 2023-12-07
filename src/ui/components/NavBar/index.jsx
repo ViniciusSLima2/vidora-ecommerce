@@ -32,7 +32,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <div className={styles["link-container"]}>
-                        {!isActive && <NavBarLink href="masculino">Masculino</NavBarLink>}
+                        {!isActive && <NavBarLink href="/masculino">Masculino</NavBarLink>}
                         {isActive && <span>Masculino</span>}
 
                         <div className={styles["hover-down-wrapper"]}>

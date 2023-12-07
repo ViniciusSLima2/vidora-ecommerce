@@ -1,6 +1,5 @@
 
 import {useRef, useEffect} from 'react'
-import ProductCard from '../../components/ProductCard'
 import styles from "./index.module.css"
 const ProductsCarousel = (props) => {
     const previousBtn = useRef()
@@ -23,23 +22,29 @@ const ProductsCarousel = (props) => {
 
     const moveCarousel = (direction) => {
         if(isOverflown()){
+            imgsArray = document.querySelectorAll(`.${styles["banner-carousel-wrapper"]} .${styles["shoes-img"]}`);
+            cardWidth = carouselContainer.current.children[0].getBoundingClientRect().width + 10;
             const carouselViewWidth = wrapperContainer.current.clientWidth;
             const carouselScrollWidth = carouselContainer.current.scrollWidth;
             const cardsOnScreen = Math.floor(carouselViewWidth / cardWidth);
             const maxTranslations = Math.floor(carouselScrollWidth / (cardsOnScreen * cardWidth));
             index += -direction;
+            console.log("cardWidth: " + cardWidth)
+            console.log("cardsOnScreen: " + cardsOnScreen)
             carouselContainer.current.style.transform = "translate(-" + (cardWidth * cardsOnScreen * index)  + "px)";
             hideBtn(maxTranslations)
         }
     }
 
     useEffect(()=> {
+        console.log("vvsd")
         imgsArray = document.querySelectorAll(`.${styles["banner-carousel-wrapper"]} .${styles["shoes-img"]}`);
-        cardWidth = carouselContainer.current.querySelector("img").getBoundingClientRect().width + 10
+        cardWidth = carouselContainer.current.children[0].getBoundingClientRect().width + 10;
         if(carouselContainer.current){
             const resizeObserver = new ResizeObserver((entries) => {
                 carouselContainer.current && (carouselContainer.current.style.transform = "translate(0px)");
                 hideBtn()
+                index = 0;
             })
         
             resizeObserver.observe(carouselContainer.current)
@@ -54,13 +59,13 @@ const ProductsCarousel = (props) => {
                 {props.title}
             </p>
             <div className={styles["wrapper"]} ref={wrapperContainer}>
-                <img className={`${styles["previous-btn"]} ${styles["arrow"]}`} src="arrow.svg" ref={previousBtn} onClick={() => moveCarousel(1)}/>
+                <img className={`${styles["previous-btn"]} ${styles["arrow"]}`} src="/arrow.svg" ref={previousBtn} onClick={() => moveCarousel(1)}/>
                 <div className={styles["container"]} ref={carouselContainer}>
                     {props.children?.map((card, index) => {
                         return(<div key={index.toString()}>{card}</div>)
                     })}
                 </div>
-                <img className={`${styles["next-btn"]} ${styles["arrow"]}`} src="arrow.svg" ref={nextBtn} onClick={() => moveCarousel(-1)}/>
+                <img className={`${styles["next-btn"]} ${styles["arrow"]}`} src="/arrow.svg" ref={nextBtn} onClick={() => moveCarousel(-1)}/>
             </div>
         </section>
         

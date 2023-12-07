@@ -33,7 +33,7 @@
     align-items: center;
 }
 
-.functionalities-container img,
+.functionalities-container svg,
 .functionalities-container a{
     width: 20px;
     height: 20px;

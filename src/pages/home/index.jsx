@@ -14,7 +14,7 @@ const Home = () => {
     const paths = usePathname()
     return (
         <div className="home-container">
-            <Header></Header>
+            
             <HomeBanner></HomeBanner>
             <BenefitsInfo></BenefitsInfo>
             
@@ -58,8 +58,6 @@ const Home = () => {
                 <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
             </ProductsCarousel>
 
-            <Footer></Footer>
-            <Breadcrumb paths={paths}></Breadcrumb>
         </div>
         
     )

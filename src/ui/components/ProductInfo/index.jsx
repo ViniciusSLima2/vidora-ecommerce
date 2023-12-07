@@ -6,7 +6,8 @@ import ProductMoreItem from '../ProductMoreItem';
 import Link from 'next/link';
 const ProductInfo = (props) => {
     let quantity = 1;
-
+    let lastSize;
+    const sizesContainer = useRef();
     const handleChangeQuantity = (n) => {
         quantity += n
     }
@@ -15,8 +16,22 @@ const ProductInfo = (props) => {
         quantity = n;
     }
 
+
+    useEffect(()=>{
+        sizesContainer.current.addEventListener("click", (e) => {
+            if(lastSize)
+                lastSize.style.backgroundColor = "#FFF";
+                
+            lastSize = e.target;
+            e.target.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+        })
+    }, [])
+
+
     return (
         <div className={styles["container"]}>
+            <Breadcrumb></Breadcrumb>
+
             <div className={styles["title-container"]}>
                 <p className={styles["title"]}>
                     {props.product.title}
@@ -26,9 +41,10 @@ const ProductInfo = (props) => {
                 </p>
             </div>
 
-            <p className={styles["description"]}>
-                {props.product.description}
-            </p>
+            <div className={styles["description"]}>
+                <p className={styles["description-text"]}><span>Description</span></p>
+                <p className={styles.main}>{props.product.description}</p>
+            </div>
 
             <div className={styles["add-cart-container"]}>
                 <ProductMoreItem handler={handleChangeQuantity} setQnt={setQnt}></ProductMoreItem>
@@ -42,6 +58,23 @@ const ProductInfo = (props) => {
                     return (<Link key={index.toString()} href={category}>{category}</Link>)
                 })}</p>
             </div>
+
+            <div className={styles["sizes-container"]} ref={sizesContainer}>
+                <p>Product Size</p>
+                <div className={styles["sizes"]}>
+                    <p>28</p>
+                    <p>29</p>
+                    <p>30</p>
+                    <p>31</p>
+                    <p>32</p>
+                    <p>33</p>
+                    <p>34</p>
+                    <p>35</p>
+                    <p>36</p>
+                </div>
+            </div>
+
+            <button className={styles["buy-btn"]}>Buy now</button>
         </div>
     )
 }

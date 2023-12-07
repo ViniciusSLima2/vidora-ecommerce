@@ -4,7 +4,7 @@
     width: 100%;
     align-items: center;
     gap: 30px;
-    background-color: black;
+    background-color: #5A5AC8;
     padding: 20px 0px;
 }
 
@@ -21,7 +21,7 @@
 
 .categories p:hover,
 .active{
-    color: #727171 !important;
+    color: #000 !important;
 }
 
 .collections-wrapper{
