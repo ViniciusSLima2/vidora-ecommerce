@@ -6,9 +6,22 @@ import { useRouter } from 'next/router'
 import ProductsCarousel from "@/ui/partials/ProductsCarousel";
 import ProductCard from "@/ui/components/ProductCard";
 import CatalogFilter from "@/ui/components/CatalogFilter";
+import PriceSlider from "@/ui/components/PriceSlider";
+import Checkbox from "@/ui/components/Checkbox";
+import { useEffect } from "react";
 const CatalogId = (props) => {
     const router = useRouter()
     console.log(router.query.catalogId)
+
+    async function ha(){
+        const response = await fetch("http://localhost:3000/api/hello")
+        const a = await response.json()
+        console.log(a)
+    }
+    useEffect(()=>{
+        ha()
+    })
+    
     return (
         <div className={styles["container"]}>
             <div className={styles["hero-banner"]}>
@@ -31,14 +44,24 @@ const CatalogId = (props) => {
                 <div className={styles["catalog-body"]}>
                     <div className={styles["catalog-filter-side"]}>
                         <div className={styles["categories-filter"]}>
-                            <CatalogFilter title={"Categories"}>
+                            <CatalogFilter title={"Brands"}>
                                 <div className={styles["categories"]}>
-                                    <p>Running</p>
-                                    <p>Casual</p>
-                                    <p>Fine</p>
+                                    <Checkbox name={"Nike"}></Checkbox>
+                                    <Checkbox name={"Adidas"}></Checkbox>
+                                    <Checkbox name={"Puma"}></Checkbox>
+                                    <Checkbox name={"Reserva"}></Checkbox>
+                                    <Checkbox name={"Vans"}></Checkbox>
+                                    <Checkbox name={"Mizuno"}></Checkbox>
                                 </div>
                             </CatalogFilter>
                         </div>
+
+                        <div className={styles["categories-filter"]}>
+                            <CatalogFilter title={"Prices"}>
+                                <PriceSlider></PriceSlider>
+                            </CatalogFilter>
+                        </div>
+
                     </div>
 
                     <div className={styles["products-container"]}>

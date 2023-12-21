@@ -6,7 +6,7 @@ import {React, useEffect, useState, useRef} from 'react'
 const CatalogFilter = (props) => {
     const title = useRef();
     const container = useRef();
-    let isShowing = false;
+    let isShowing = true;
     
     useEffect(() => {
         title.current.addEventListener("click", () => {
@@ -21,7 +21,7 @@ const CatalogFilter = (props) => {
     })
     
     return (
-        <div className={styles["container"]} ref={container}>
+        <div className={`${styles["container"]} ${styles["active"]}`} ref={container}>
            <p className={styles["title"]} ref={title}>{props.title}</p>
            <div className={styles["body"]}>
                 {props.children}

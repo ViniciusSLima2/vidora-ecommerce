@@ -25,9 +25,9 @@
   }
   
 .link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 .active-link {
     color: #747474;
