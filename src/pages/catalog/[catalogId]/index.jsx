@@ -1,26 +1,17 @@
-import ProductImagePicker from "@/ui/components/ProductImagePicker";
-import ProductInfo from "@/ui/components/ProductInfo";
-import Breadcrumb from "@/ui/components/Breadcrumb";
+
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
-import ProductsCarousel from "@/ui/partials/ProductsCarousel";
 import ProductCard from "@/ui/components/ProductCard";
 import CatalogFilter from "@/ui/components/CatalogFilter";
 import PriceSlider from "@/ui/components/PriceSlider";
 import Checkbox from "@/ui/components/Checkbox";
 import { useEffect } from "react";
+import { signal } from '@preact/signals-react';
+
+const name = signal([])
 const CatalogId = (props) => {
     const router = useRouter()
-    console.log(router.query.catalogId)
-
-    async function ha(){
-        const response = await fetch("http://localhost:3000/api/hello")
-        const a = await response.json()
-        console.log(a)
-    }
-    useEffect(()=>{
-        ha()
-    })
+    
     
     return (
         <div className={styles["container"]}>

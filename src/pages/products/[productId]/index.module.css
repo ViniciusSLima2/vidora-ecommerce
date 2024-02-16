@@ -6,7 +6,8 @@
 .main-description{
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 80px;
+    justify-content: space-evenly;
     padding-top: 100px;
     margin: 0 40px;
 }

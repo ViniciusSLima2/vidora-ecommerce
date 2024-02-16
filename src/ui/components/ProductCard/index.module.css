@@ -7,10 +7,12 @@
     flex-shrink: 0;
     transition: all 0.1s;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .container img{
     width: 100%;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -23,6 +25,7 @@
 
 .title{
     font-size: 22px;
+    text-decoration: none;
 }
 
 .container:hover{

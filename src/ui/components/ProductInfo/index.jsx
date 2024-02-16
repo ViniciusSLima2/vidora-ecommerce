@@ -34,16 +34,11 @@ const ProductInfo = (props) => {
 
             <div className={styles["title-container"]}>
                 <p className={styles["title"]}>
-                    {props.product.title}
+                    {props.product?.title}
                 </p>
                 <p className={styles["price"]}>
-                    ${props.product.price}
+                    ${props.product?.price}
                 </p>
-            </div>
-
-            <div className={styles["description"]}>
-                <p className={styles["description-text"]}><span>Description</span></p>
-                <p className={styles.main}>{props.product.description}</p>
             </div>
 
             <div className={styles["add-cart-container"]}>

@@ -12,7 +12,6 @@ const ProductMoreItem = (props) => {
             return
         }
         setQuantity(parseInt(quantity) + 1)
-        console.log(quantity)
         props.handler(1)
     }
 

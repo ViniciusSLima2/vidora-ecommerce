@@ -1,7 +1,11 @@
 import ProductCard from "@/ui/components/ProductCard"
 import styles from "./index.module.css"
 import {useRef, useEffect} from 'react';
+import { useSignals } from "@preact/signals-react/runtime";
+import { shoes } from "@/signals/shoesSignals";
+
 const Collections = (props) => {
+    useSignals()
     const categories = useRef();
     const collections = useRef();
     let lastCollection = 0;
@@ -29,44 +33,21 @@ const Collections = (props) => {
             <div className={styles["collections-wrapper"]}>
                 <div className={styles["collections"]} ref={collections}> 
                     <div className={styles["collection"]}>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
+                        {shoes.value.slice(0, 15).map((item) => {
+                            return <ProductCard shoesData={item}></ProductCard>
+                        })}
                     </div>
 
                     <div className={styles["collection"]}>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
+                        {shoes.value.slice(15, 30).map((item) => {
+                            return <ProductCard shoesData={item}></ProductCard>
+                        })}
                     </div>
 
                     <div className={styles["collection"]}>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                        <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
+                        {shoes.value.slice(25, 40).map((item) => {
+                            return <ProductCard shoesData={item}></ProductCard>
+                        })}
                     </div>
                 </div>
             </div>

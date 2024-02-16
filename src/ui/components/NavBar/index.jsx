@@ -10,7 +10,6 @@ const NavBar = () => {
     useEffect(() => {
         if(isActive){
             const categories = document.querySelectorAll(`.${styles["link-container"]} span`);
-            console.log(categories)
             categories.forEach((category) => {
                 category.addEventListener("click", () => {
                     if(category.nextElementSibling.classList.contains(styles["full-max-height"])){
@@ -32,7 +31,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <div className={styles["link-container"]}>
-                        {!isActive && <NavBarLink href="/masculino">Masculino</NavBarLink>}
+                        {!isActive && <NavBarLink href="masculino">Masculino</NavBarLink>}
                         {isActive && <span>Masculino</span>}
 
                         <div className={styles["hover-down-wrapper"]}>

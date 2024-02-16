@@ -10,8 +10,12 @@ import Collections from "@/ui/partials/Collections";
 import Footer from "@/ui/partials/Footer";
 import Breadcrumb from "@/ui/components/Breadcrumb";
 import { usePathname } from "next/navigation";
+import { shoes } from "@/signals/shoesSignals";
+import { useSignals } from "@preact/signals-react/runtime";
 const Home = () => {
     const paths = usePathname()
+    useSignals()
+    console.log(shoes.value)
     return (
         <div className="home-container">
             
@@ -27,35 +31,22 @@ const Home = () => {
                 <BrandCard srcImg="olympikus-logo.webp" brandName="Olympikus" hrefLink="/products/olympikus"></BrandCard>
             </Brands>
 
+
             <ProductsCarousel title={"Nike"}>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="shoes1.jpeg" title={"Tenis nike"} price="399.99" imgAlt={"tenis"}></ProductCard>
+                {shoes.value?.map((item) => {
+                    if(item.brand === "Nike")
+                        return <ProductCard shoesData={item}></ProductCard>
+                })}
             </ProductsCarousel>
+            
 
             <Collections></Collections>
 
             <ProductsCarousel title={"Adidas"}>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
-                <ProductCard imgSrc="adidas-shoes1.webp" title={"Tenis adidas"} price="488.99" imgAlt={"tenis"}></ProductCard>
+                {shoes.value?.map((item) => {
+                    if(item.brand === "Adidas")
+                        return <ProductCard shoesData={item}></ProductCard>
+                })}
             </ProductsCarousel>
 
         </div>

@@ -4,21 +4,17 @@ const PriceSlider = (props) => {
     const container = useRef()
     const priceInputRef = useRef()
     const rangeInputRef = useRef()
-    const [minRange, setMinRange] = useState(0);
-    const [maxRange, setMaxRange] = useState(2000);
     let priceGap = 100;
     useEffect((e) => {
         const rangeInput = rangeInputRef.current.querySelectorAll(`.${styles["range-input"]} input`)
         const priceInput = priceInputRef.current.querySelectorAll(`input`)
         const range = container.current.querySelector(`.${styles["progress"]}`);
-        console.log(priceInput)
         rangeInput[0].value = priceInput[0].value = 0
         rangeInput[1].value = priceInput[1].value = 3000
         priceInput.forEach(input =>{
             input.addEventListener("input", e =>{
                 let minPrice = parseInt(priceInput[0].value),
                 maxPrice = parseInt(priceInput[1].value);
-                console.log("d")
                 
                 if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
                     if(e.target.className === styles["input-min"]){
