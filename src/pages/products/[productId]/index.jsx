@@ -16,15 +16,9 @@ const id = signal("")
 const Index = () => {
     const router = useRouter()
     useSignals()
-    console.log("rodouu")
     id.value = router.query.productId
     useEffect(() => {
-        console.log('ENTROU')
-        if(router.query.productId){
-            console.log('s')
-            console.log(shoes.value)
-            getDocById(router.query.productId).then(result => productData.value = result)
-        }
+        if(router.query.productId) getDocById(router.query.productId).then(result => productData.value = result)
     }, [router.query.productId])
 
 
@@ -37,9 +31,7 @@ const Index = () => {
                 <ProductsCarousel title={"You could also like:"}>
                     {shoes.value?.slice(0, 15).map((shoes) => {
                         return <ProductCard shoesData={shoes}></ProductCard>
-                    })}
-                </ProductsCarousel>
-                
+                    })}</ProductsCarousel>
             </div>
         )
     

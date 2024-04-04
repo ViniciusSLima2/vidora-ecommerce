@@ -1,3 +1,4 @@
+'use client'
 import BrandCard from "@/ui/components/BrandCard";
 import BenefitsInfo from "@/ui/partials/BenefitsInfo";
 import Header from "@/ui/partials/Header";
@@ -15,14 +16,14 @@ import { useSignals } from "@preact/signals-react/runtime";
 const Home = () => {
     const paths = usePathname()
     useSignals()
-    console.log(shoes.value)
     return (
-        <div className="home-container">
+        <div className="home-container" suppressHydrationWarning>
             
             <HomeBanner></HomeBanner>
             <BenefitsInfo></BenefitsInfo>
             
             <ImageGrids></ImageGrids>
+            
             <Brands>
                 <BrandCard srcImg="nike-logo.webp" brandName="Nike" hrefLink="/products/nike"></BrandCard>
                 <BrandCard srcImg="adidas-logo.png" brandName="Adidas" hrefLink="/products/adidas"></BrandCard>
@@ -33,9 +34,9 @@ const Home = () => {
 
 
             <ProductsCarousel title={"Nike"}>
-                {shoes.value?.map((item) => {
+                {shoes.value?.map((item, index) => {
                     if(item.brand === "Nike")
-                        return <ProductCard shoesData={item}></ProductCard>
+                        return <ProductCard key={index.toString()} shoesData={item}></ProductCard>
                 })}
             </ProductsCarousel>
             
@@ -43,9 +44,9 @@ const Home = () => {
             <Collections></Collections>
 
             <ProductsCarousel title={"Adidas"}>
-                {shoes.value?.map((item) => {
+                {shoes.value?.map((item, index) => {
                     if(item.brand === "Adidas")
-                        return <ProductCard shoesData={item}></ProductCard>
+                        return <ProductCard shoesData={item} key={index.toString()}></ProductCard>
                 })}
             </ProductsCarousel>
 

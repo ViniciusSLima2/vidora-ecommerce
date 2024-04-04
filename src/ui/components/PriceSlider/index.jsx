@@ -1,6 +1,11 @@
+import { useSignals } from "@preact/signals-react/runtime";
 import { Children, useEffect, useRef, useState } from "react";
 import styles from "./index.module.css"
+import { filterParameters } from "@/pages/products";
+import { useRouter } from "next/router";
 const PriceSlider = (props) => {
+    useSignals()
+    const router = useRouter()
     const container = useRef()
     const priceInputRef = useRef()
     const rangeInputRef = useRef()
@@ -29,8 +34,19 @@ const PriceSlider = (props) => {
         });
         rangeInput.forEach(input =>{
             input.addEventListener("input", e =>{
-                let minVal = parseInt(rangeInput[0].value),
-                maxVal = parseInt(rangeInput[1].value);
+                let minVal = parseFloat(rangeInput[0].value),
+                maxVal = parseFloat(rangeInput[1].value);
+                filterParameters.value = {...filterParameters.value, priceRange: {minPrice : minVal, maxPrice : maxVal}}
+                router.push({
+                    pathname: '/products',
+                    query: {
+                      ...router.query,
+                      minVal,
+                      maxVal
+                    },
+                  },
+                  undefined, 
+                  { shallow: true });
                 if((maxVal - minVal) < priceGap){
                     if(e.target.className === styles["range-min"]){
                         rangeInput[0].value = maxVal - priceGap
@@ -46,7 +62,7 @@ const PriceSlider = (props) => {
             });
         });
         
-    })
+    }, [])
     
     return (
         <div className={styles["container"]} ref={container}>

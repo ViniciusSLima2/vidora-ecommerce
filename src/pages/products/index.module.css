@@ -90,3 +90,6 @@
     justify-content: center;
 }
 
+.container :global(.globalContainer){
+    width: 90%;
+}

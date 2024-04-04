@@ -34,19 +34,19 @@ const Collections = (props) => {
                 <div className={styles["collections"]} ref={collections}> 
                     <div className={styles["collection"]}>
                         {shoes.value.slice(0, 15).map((item) => {
-                            return <ProductCard shoesData={item}></ProductCard>
+                            return <ProductCard shoesData={item} key={item.sku}></ProductCard>
                         })}
                     </div>
 
                     <div className={styles["collection"]}>
                         {shoes.value.slice(15, 30).map((item) => {
-                            return <ProductCard shoesData={item}></ProductCard>
+                            return <ProductCard shoesData={item} key={item.sku}></ProductCard>
                         })}
                     </div>
 
                     <div className={styles["collection"]}>
                         {shoes.value.slice(25, 40).map((item) => {
-                            return <ProductCard shoesData={item}></ProductCard>
+                            return <ProductCard shoesData={item} key={item.sku}></ProductCard>
                         })}
                     </div>
                 </div>

@@ -11,7 +11,6 @@ export const getAllShoes = async () => {
       shoesData.push({id: doc.id, ...doc.data()})
     })
     shoes.value = shoesData
-    console.log(shoes.value)
     return shoesData
 }
 
@@ -24,3 +23,13 @@ export const getDocById = async(id) =>{
         throw new Error("Document not found");
 
 }
+
+export const getNameById = async(id) => {
+    const docRef = doc(db, "shoes", id)
+    const querySnapshot = await getDoc(docRef);
+    if (querySnapshot.exists()) 
+        return querySnapshot.data().title
+    else 
+        throw new Error("Document not found");
+}
+

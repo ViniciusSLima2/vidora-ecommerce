@@ -15,7 +15,7 @@
     right: 0%;
     position: absolute;
     border-radius: 5px;
-    background: #17A2B8;
+    background: rgb(90, 90, 200);
 }
 
 .range-input {
@@ -37,7 +37,7 @@
     height: 17px;
     width: 17px;
     border-radius: 50%;
-    background: #17A2B8;
+    background: rgb(90, 90, 200);
     pointer-events: auto;
     -webkit-appearance: none;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);

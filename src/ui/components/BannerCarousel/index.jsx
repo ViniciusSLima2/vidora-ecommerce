@@ -5,8 +5,25 @@ const BannerCarousel = (props) => {
     const previousBtn = useRef()
     const nextBtn = useRef()
     const carouselContainer = useRef()
-    let imgsArray = [];
+    let imgsArray = props.hrefArray.length;
     let index = 0;
+
+
+    useEffect(()=> {
+        imgsArray = document.querySelectorAll(`.${styles["banner-carousel-wrapper"]} .${styles["shoes-img"]}`);                                                                                                                         
+        let resizeObserver
+        if(carouselContainer.current){
+            resizeObserver = new ResizeObserver((entries) => {
+                carouselContainer.current && (carouselContainer.current.style.transform = "translate(0px)");
+                index = 0;
+                hideBtn()
+            })
+        
+            resizeObserver.observe(carouselContainer.current)
+        }
+        return resizeObserver.disconnect()
+    })
+
     const handleNextBtn = (e) => {
         if(index + 1 <= imgsArray.length - 1){
             index += 1;
@@ -27,23 +44,6 @@ const BannerCarousel = (props) => {
         previousBtn.current && (previousBtn.current.style.display = index === 0 ? 'none' : 'block');
         nextBtn.current && (nextBtn.current.style.display = index === imgsArray.length - 1 ? 'none' : 'block');
     }
-
-    useEffect(()=> {
-        imgsArray = document.querySelectorAll(`.${styles["banner-carousel-wrapper"]} .${styles["shoes-img"]}`);
-
-        if(carouselContainer.current){
-            const resizeObserver = new ResizeObserver((entries) => {
-                carouselContainer.current && (carouselContainer.current.style.transform = "translate(0px)");
-                index = 0;
-                hideBtn()
-            })
-        
-            resizeObserver.observe(carouselContainer.current)
-        }
-        
-    }, [])
-
-    
 
     return (
         <div className={styles["banner-carousel-wrapper"]}>

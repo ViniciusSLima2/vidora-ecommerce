@@ -1,8 +1,9 @@
 .main-container{
     display: flex;
     flex-direction: column;
-    margin: 30px 40px;
+    padding: 30px 40px;
     gap: 20px;
+    width: 100%;
 }
 
 .main-container > p{

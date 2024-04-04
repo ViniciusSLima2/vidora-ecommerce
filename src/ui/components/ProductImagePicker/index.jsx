@@ -6,7 +6,6 @@ const ProductImagePicker = (props) => {
     const handlerImage = (n) => {
         mainImg.current.src = props.images[n];
     }
-    console.log(props.image)
     const imageLinks = props.images ? props.images : []
     return (
         <div className={styles["container"]}>

@@ -1,13 +1,22 @@
 .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding: 0 40px;
+    align-items: center;
 }
 
 .main-description{
     display: flex;
     flex-direction: row;
     gap: 80px;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-top: 100px;
-    margin: 0 40px;
+    width: 100%;
+}
+
+@media (max-width: 1100px){
+    .main-description{
+        flex-direction: column;
+    }
 }

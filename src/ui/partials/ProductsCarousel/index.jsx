@@ -1,4 +1,4 @@
-
+'use client'
 import {useRef, useEffect} from 'react'
 import styles from "./index.module.css"
 const ProductsCarousel = (props) => {
@@ -6,7 +6,7 @@ const ProductsCarousel = (props) => {
     const nextBtn = useRef()
     const carouselContainer = useRef()
     const wrapperContainer = useRef()
-    let imgsArray = [];
+    let imgsArray;
     let index = 0;
     let cardWidth = "";
 
@@ -51,10 +51,8 @@ const ProductsCarousel = (props) => {
     
 
     return (
-        <section className={styles["main-container"]}>
-            <p className={styles["carousel-title"]}>
-                {props.title}
-            </p>
+        <section className={styles["main-container"]} suppressHydrationWarning>
+            <p className={styles["carousel-title"]}>{props.title}</p>
             <div className={styles["wrapper"]} ref={wrapperContainer}>
                 <img className={`${styles["previous-btn"]} ${styles["arrow"]}`} src="/arrow.svg" ref={previousBtn} onClick={() => moveCarousel(1)}/>
                 <div className={styles["container"]} ref={carouselContainer}>
